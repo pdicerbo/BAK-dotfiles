@@ -14,6 +14,7 @@ alias ncdu='ncdu --color dark'
 alias p='python'
 alias sshfs_atsapp234='sshfs piedicer@ATS.LOCAL@atsapp234.ats.local:/srv/projects/monitoring_stack /home/pierluigi/DockerEnvs/sshfs/monitor_stack_atsapp234'
 alias sshfs_atsapp235='sshfs atsapp235:/srv/projects/ /home/pierluigi/DockerEnvs/sshfs/srv_prj_atsapp235'
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles-bare-repo --work-tree=$HOME"
 
 # sourcing git-completion.bash
 if [ -f /usr/share/git/completion/git-completion.bash ]; then

@@ -10,7 +10,19 @@ return {
         -- image = { enabled = false },
         indent = { enabled = true },
         input = { enabled = true },
-        lazygit = { enabled = true },
+        lazygit = {
+            configure = true,
+            config = {
+                os = { editPreset = "nvim-remote", },
+                gui = {
+                    -- set to an empty string "" to disable icons
+                    nerdFontsVersion = "3",
+                },
+            },
+            win = {
+                style = "lazygit",
+            },
+        },
         picker = { enabled = true },
         notifier = { enabled = true },
         quickfile = { enabled = true },

@@ -1,6 +1,7 @@
 {
   "CopilotChat.nvim": { "branch": "main", "commit": "75653259442a8eb895abfc70d7064e07aeb7134c" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
+  "codewindow.nvim": { "branch": "master", "commit": "dd7017617962943eb1d152fc58940f11c6775a4a" },
   "copilot.vim": { "branch": "release", "commit": "250f24cc485aede5d0069e8765542c3787448d8d" },
   "cppman.nvim": { "branch": "main", "commit": "5f227eed094f32a9ab3d1a0bf5f88708389d36c4" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
@@ -22,6 +23,7 @@
   "trim.nvim": { "branch": "master", "commit": "d0760a840ca2fe4958353dee567a90c2994e70a7" },
   "ts-comments.nvim": { "branch": "main", "commit": "1bd9d0ba1d8b336c3db50692ffd0955fe1bb9f0c" },
   "vim-gitgutter": { "branch": "main", "commit": "6620e5fbbe6a28de0bfed081f5bd2767023b7eea" },
+  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }

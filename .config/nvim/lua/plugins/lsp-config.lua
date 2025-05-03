@@ -47,7 +47,7 @@ return {
             }
             vim.lsp.enable('clangd')
             vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, { desc = "LSP Hover" })
-            vim.keymap.set('n', 'H', vim.lsp.buf.implementation, { desc = "LSP Implementation" })
+            -- vim.keymap.set('n', 'H', vim.lsp.buf.implementation, { desc = "LSP Implementation" })
         end,
     }
 }

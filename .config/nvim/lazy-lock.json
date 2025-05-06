@@ -1,6 +1,7 @@
 {
   "CopilotChat.nvim": { "branch": "main", "commit": "75653259442a8eb895abfc70d7064e07aeb7134c" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
+  "cmake-tools.nvim": { "branch": "master", "commit": "1ee065c33ca777c0e03cd7c358010202ee70bb88" },
   "codewindow.nvim": { "branch": "master", "commit": "dd7017617962943eb1d152fc58940f11c6775a4a" },
   "copilot.vim": { "branch": "release", "commit": "250f24cc485aede5d0069e8765542c3787448d8d" },
   "cppman.nvim": { "branch": "main", "commit": "5f227eed094f32a9ab3d1a0bf5f88708389d36c4" },
@@ -14,6 +15,7 @@
   "nui.nvim": { "branch": "main", "commit": "8d5b0b568517935d3c84f257f272ef004d9f5a59" },
   "nvim-lspconfig": { "branch": "master", "commit": "37cc31c64d657feff6f752a1bf15f584d4734eca" },
   "nvim-remote-containers": { "branch": "master", "commit": "73c2cbc59b69b4026682aea6bab225831fb8eaa4" },
+  "nvim-spectre": { "branch": "master", "commit": "197150cd3f30eeb1b3fd458339147533d91ac385" },
   "nvim-treesitter": { "branch": "master", "commit": "3b308861a8d7d7bfbe9be51d52e54dcfd9fe3d38" },
   "nvim-web-devicons": { "branch": "master", "commit": "50b5b06bff13a9b4eab946de7c7033649a6618a1" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },

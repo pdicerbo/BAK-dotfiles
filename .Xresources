@@ -72,6 +72,11 @@ URxvt.keysym.C-plus:      resize-font:bigger
 URxvt.keysym.C-equal:     resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
 
+URxvt.keysym.Shift-Up: \033[1;2A
+URxvt.keysym.Shift-Down: \033[1;2B
+URxvt.keysym.Shift-Left: \033[1;2D
+URxvt.keysym.Shift-Right: \033[1;2C
+
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt.secondaryWheel: 1

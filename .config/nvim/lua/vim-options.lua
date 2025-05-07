@@ -21,8 +21,23 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.termguicolors = true
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Shift visual selected lines down
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Shift visual selected lines up
+-- Shift visual selected lines
+vim.keymap.set( "v", "<M-j>",       ":m '>+1<CR>gv=gv", { desc = "Shift visual selected lines down" } ) -- Shift visual selected lines down
+vim.keymap.set( "v", "<M-k>",       ":m '<-2<CR>gv=gv", { desc = "Shift visual selected lines up" } ) -- Shift visual selected lines up
+vim.keymap.set( "v", "<M-Down>",    ":m '>+1<CR>gv=gv", { desc = "Shift visual selected lines down" } ) -- Shift visual selected lines down
+vim.keymap.set( "v", "<M-Up>",      ":m '<-2<CR>gv=gv", { desc = "Shift visual selected lines up" } ) -- Shift visual selected lines up
+
+-- shift+arrow selection
+vim.keymap.set( "n", "<S-Up>",      "v<Up>",          { desc = "shift+Up arrow selection (normal mode)" })
+vim.keymap.set( "n", "<S-Down>",    "v<Down>",        { desc = "shift+Down arrow selection (normal mode)" })
+vim.keymap.set( "v", "<S-Up>",      "<Up>",           { desc = "shift+Up arrow selection (visual mode)" })
+vim.keymap.set( "v", "<S-Down>",    "<Down>",         { desc = "shift+Down arrow selection (visual mode)" })
+vim.keymap.set( "v", "<S-Left>",    "<Left>",         { desc = "shift+Left arrow selection (visual mode)" })
+vim.keymap.set( "v", "<S-Right>",   "<Right>",        { desc = "shift+Right arrow selection (visual mode)" })
+vim.keymap.set( "i", "<S-Up>",      "<Esc>v<Up>",     { desc = "shift+Up arrow selection (insert mode)" })
+vim.keymap.set( "i", "<S-Down>",    "<Esc>v<Down>",   { desc = "shift+Down arrow selection (insert mode)" })
+vim.keymap.set( "i", "<S-Left>",    "<Esc>v<Left>",   { desc = "shift+Left arrow selection (insert mode)" })
+vim.keymap.set( "i", "<S-Right>",   "<Esc>v<Right>",  { desc = "shift+Right arrow selection (insert mode)" })
 
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}

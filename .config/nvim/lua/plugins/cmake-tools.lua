@@ -4,7 +4,7 @@ return {
     config = function()
         require("cmake-tools").setup({
             cmake_build_directory = "build",
-            cmake_soft_link_compile_commands = false,
+            -- cmake_soft_link_compile_commands = false,
             cmake_generate_options = {
                 "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
                 "-DCMAKE_C_COMPILER=clang",

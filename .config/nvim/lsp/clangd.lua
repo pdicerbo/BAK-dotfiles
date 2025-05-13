@@ -77,13 +77,29 @@ return {
     },
     offsetEncoding = { 'utf-8', 'utf-16' },
   },
-  on_attach = function()
-    vim.api.nvim_buf_create_user_command(0, 'LspClangdSwitchSourceHeader', function()
-      switch_source_header(0)
-    end, { desc = 'Switch between source/header' })
+    on_attach = function()
+        vim.api.nvim_buf_create_user_command(0, 'LspClangdSwitchSourceHeader', function()
+            switch_source_header(0)
+        end, { desc = 'Switch between source/header' })
 
-    vim.api.nvim_buf_create_user_command(0, 'LspClangdShowSymbolInfo', function()
-      symbol_info()
-    end, { desc = 'Show symbol info' })
-  end,
+        vim.api.nvim_buf_create_user_command(0, 'LspClangdShowSymbolInfo', function()
+            symbol_info()
+        end, { desc = 'Show symbol info' })
+
+        -- add custom keymaps
+        -- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts) -- already provided by folke.snacks
+        vim.keymap.set({'n', 'x'}, 'gq', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+        vim.keymap.set('n', 'grt', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+        vim.keymap.set('n', 'grd', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+
+        -- Format on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ async = false })
+            end,
+        })
+        --     end,
+        -- })
+    end,
 }

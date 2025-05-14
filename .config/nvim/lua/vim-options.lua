@@ -8,22 +8,23 @@ vim.cmd("au VimLeave,VimSuspend * set guicursor=n-ci:hor30-iCursor-blinkwait300-
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.opt.relativenumber = true
+vim.opt.background = "dark"
 vim.opt.cursorline = true -- Enable highlighting of the current line
+vim.opt.clipboard:append ("unnamedplus") -- Copy paste between vim and everything else
 vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.hlsearch = true -- Highlight all matches on previous search pattern
 vim.opt.list = true -- Show some invisible characters (tabs...
 vim.opt.number = true -- Print line number
+vim.opt.relativenumber = true
+vim.opt.shiftwidth = 4
 vim.opt.showmode = false -- Dont show mode since we have a statusline
 vim.opt.smartindent = true -- Insert indents automatically
-vim.opt.spelllang = { "en" }
-vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.termguicolors = true
-vim.opt.background = "dark"
-vim.opt.splitright = true -- Split vertically to the right
+vim.opt.spelllang = { "en" }
 vim.opt.splitbelow = true -- Split horizontally to the bottom
-vim.opt.clipboard:append ("unnamedplus") -- Copy paste between vim and everything else
+vim.opt.splitright = true -- Split vertically to the right
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
 
 -- Shift visual selected lines
 vim.keymap.set( "v", "<M-j>",       ":m '>+1<CR>gv=gv", { desc = "Shift visual selected lines down" } ) -- Shift visual selected lines down

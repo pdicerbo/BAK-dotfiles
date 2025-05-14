@@ -5,7 +5,6 @@ return {
     ---@type snacks.Config
     opts = {
         bigfile = { enabled = true },
-        explorer = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
         lazygit = {

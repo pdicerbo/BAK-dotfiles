@@ -57,7 +57,7 @@ return {
                 -- stylua: ignore
                 right_mouse_command = function(n) Snacks.bufdelete(n) end,
                 diagnostics = "nvim_lsp",
-                always_show_bufferline = false,
+                always_show_bufferline = true,
                 -- diagnostics_indicator = function(_, _, diag)
                 --   local icons = LazyVim.config.icons.diagnostics
                 --   local ret = (diag.error and icons.Error .. diag.error .. " " or "")
@@ -75,6 +75,11 @@ return {
                         filetype = "snacks_layout_box",
                     },
                 },
+
+                show_buffer_icons = true,
+                separator_style = "slant",
+                sort_by = 'insert_after_current',
+
                 ---@param opts bufferline.IconFetcherOpts
                 -- get_element_icon = function(opts)
                 --   return LazyVim.config.icons.ft[opts.filetype]

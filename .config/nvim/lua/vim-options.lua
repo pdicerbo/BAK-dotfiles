@@ -20,6 +20,10 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.splitright = true -- Split vertically to the right
+vim.opt.splitbelow = true -- Split horizontally to the bottom
+vim.opt.clipboard:append ("unnamedplus") -- Copy paste between vim and everything else
 
 -- Shift visual selected lines
 vim.keymap.set( "v", "<M-j>",       ":m '>+1<CR>gv=gv", { desc = "Shift visual selected lines down" } ) -- Shift visual selected lines down

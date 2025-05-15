@@ -44,10 +44,39 @@ vim.keymap.set( "i", "<S-Down>",    "<Esc>v<Down>",   { desc = "shift+Down arrow
 vim.keymap.set( "i", "<S-Left>",    "<Esc>v<Left>",   { desc = "shift+Left arrow selection (insert mode)" })
 vim.keymap.set( "i", "<S-Right>",   "<Esc>v<Right>",  { desc = "shift+Right arrow selection (insert mode)" })
 
+-- Join next line with the current one keeping the cursor in the same position
+vim.keymap.set("n", "J", "mzJ`z")
+
+-- Keep cursor in the middle of the screen when jumping up and down
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move down in buffer with cursor centered" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move up in buffer with cursor centered" })
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- move selected lines left and right without losing selection
+vim.keymap.set("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
+
+-- prevent x delete from registering when next paste
+vim.keymap.set("n", "x", '"_x', opts)
+
+-- format without prettier using the built in
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+-- Replace the word cursor is on globally
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "Replace word cursor is on globally" })
+
+-- split management
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>so", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+    local opts = {buffer = 0}
+    vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+    vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead

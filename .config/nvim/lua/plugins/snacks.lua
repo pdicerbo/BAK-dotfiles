@@ -70,7 +70,7 @@ return {
         { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
         { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
         { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
-        { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+        { "<leader>sk", function() Snacks.picker.keymaps({ layout = "ivy" }) end, desc = "Keymaps" },
         { "<leader>sl", function() Snacks.picker.loclist() end, desc = "Location List" },
         { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
         { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
@@ -78,7 +78,7 @@ return {
         -- { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
         { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
         { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
-        { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+        { "<leader>uC", function() Snacks.picker.colorschemes({ layout = "ivy" }) end, desc = "Colorschemes" },
         -- LSP
         { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
         { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },

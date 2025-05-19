@@ -9,6 +9,9 @@ return {
             ["Goto Next"] = "<leader>[",
             ["Goto Prev"] = "<leader>]",
         }
+        -- configure highlight for insert mode multi cursors
+        -- vim.cmd("highlight VM_Insert_hl guifg=white guibg=purple")
+        vim.g.VM_theme = "codedark"
 
         vim.keymap.set("n", "<C-n>",            "<Plug>(VM-Find-Under)",          { desc = "Select the word under cursor" } )
         vim.keymap.set("n", "<C-n>",            "<Plug>(VM-Find-Subword-Under)",  { desc = "Select the word under cursor (from visual mode, without word boundaries)" } )

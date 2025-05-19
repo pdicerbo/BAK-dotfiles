@@ -4,9 +4,12 @@ return {
     init = function()
         vim.g.VM_default_mappings = 0
         vim.g.VM_mouse_mappings = 1
-        -- vim.g.VM_maps = {
-            -- ["Visual All"] = "<C-F2>",
-        -- }
+        -- avoid stupid conflict with treesitter-textobjects
+        vim.g.VM_maps = {
+            ["Goto Next"] = "<leader>[",
+            ["Goto Prev"] = "<leader>]",
+        }
+
         vim.keymap.set("n", "<C-n>",            "<Plug>(VM-Find-Under)",          { desc = "Select the word under cursor" } )
         vim.keymap.set("n", "<C-n>",            "<Plug>(VM-Find-Subword-Under)",  { desc = "Select the word under cursor (from visual mode, without word boundaries)" } )
         vim.keymap.set("n", "<C-Up>",           "<Plug>(VM-Add-Cursor-Up)",       { desc = "Create cursors vertically" } )

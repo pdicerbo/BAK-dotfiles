@@ -1,0 +1,8 @@
+gui:
+  authorColors:
+    'Pierluigi Di Cerbo': 'blue' # use red for John Smith
+git:
+  mainBranches:
+    - master
+  autoFetch: false
+  autoRefresh: false

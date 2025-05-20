@@ -6,3 +6,6 @@ git:
     - master
   autoFetch: false
   autoRefresh: false
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --pretty=medium {{branchName}} --oneline
+  log:
+    showWholeGraph: true

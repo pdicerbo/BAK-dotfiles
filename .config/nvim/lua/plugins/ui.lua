@@ -16,6 +16,9 @@ return {
         config = function()
             require("noice").setup({
                 lsp = {
+                    progress = {
+						enabled = true,
+					},
                     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
                     override = {
                         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -106,39 +109,39 @@ return {
             local lualine = require("lualine")
             local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
-            local colors = {
-                color0 = "#092236",
-                color1 = "#ff5874",
-                color2 = "#3b8fcf",
-                color3 = "#1c1e26",
-                color6 = "#a1aab8",
-                color7 = "#4a8842",
-                color8 = "#0b9ded",
-            }
-            local my_lualine_theme = {
-                replace = {
-                    a = { fg = colors.color0, bg = colors.color1, gui = "bold" },
-                    b = { fg = colors.color2, bg = colors.color3 },
-                },
-                inactive = {
-                    a = { fg = colors.color6, bg = colors.color3, gui = "bold" },
-                    b = { fg = colors.color6, bg = colors.color3 },
-                    c = { fg = colors.color6, bg = colors.color3 },
-                },
-                normal = {
-                    a = { fg = colors.color0, bg = colors.color7, gui = "bold" },
-                    b = { fg = colors.color2, bg = colors.color3 },
-                    c = { fg = colors.color2, bg = colors.color3 },
-                },
-                visual = {
-                    a = { fg = colors.color0, bg = colors.color8, gui = "bold" },
-                    b = { fg = colors.color2, bg = colors.color3 },
-                },
-                insert = {
-                    a = { fg = colors.color0, bg = colors.color2, gui = "bold" },
-                    b = { fg = colors.color2, bg = colors.color3 },
-                },
-            }
+            -- local colors = {
+            --     color0 = "#092236",
+            --     color1 = "#ff5874",
+            --     color2 = "#3b8fcf",
+            --     color3 = "#1c1e26",
+            --     color6 = "#a1aab8",
+            --     color7 = "#45a239",
+            --     color8 = "#0b9ded",
+            -- }
+            -- local my_lualine_theme = {
+            --     replace = {
+            --         a = { fg = colors.color0, bg = colors.color1, gui = "bold" },
+            --         b = { fg = colors.color2, bg = colors.color3 },
+            --     },
+            --     inactive = {
+            --         a = { fg = colors.color6, bg = colors.color3, gui = "bold" },
+            --         b = { fg = colors.color6, bg = colors.color3 },
+            --         c = { fg = colors.color6, bg = colors.color3 },
+            --     },
+            --     normal = {
+            --         a = { fg = colors.color0, bg = colors.color7, gui = "bold" },
+            --         b = { fg = colors.color2, bg = colors.color3 },
+            --         c = { fg = colors.color2, bg = colors.color3 },
+            --     },
+            --     visual = {
+            --         a = { fg = colors.color0, bg = colors.color8, gui = "bold" },
+            --         b = { fg = colors.color2, bg = colors.color3 },
+            --     },
+            --     insert = {
+            --         a = { fg = colors.color0, bg = colors.color2, gui = "bold" },
+            --         b = { fg = colors.color2, bg = colors.color3 },
+            --     },
+            -- }
 
             local mode = {
                 'mode',
@@ -168,7 +171,8 @@ return {
             lualine.setup({
                 icons_enabled = true,
                 options = {
-                    theme = my_lualine_theme,
+                    -- theme = my_lualine_theme,
+                    theme = "tokyonight-storm",
                     -- component_separators = { left = "|", right = "|" },
                     -- section_separators = { left = "|", right = "" },
                 },
@@ -184,8 +188,8 @@ return {
                             cond = lazy_status.has_updates,
                             color = { fg = "#ff9e64" },
                         },
-                        -- { "encoding",},
-                        -- { "fileformat" },
+                        { "encoding",},
+                        { "fileformat" },
                         { "filetype" },
                     },
                 },
@@ -194,20 +198,10 @@ return {
     },
 
     {
-        "airblade/vim-gitgutter",
-        -- lazy = true,
-        -- event = "BufReadPost",
-        config = function()
-            vim.g.gitgutter_map_keys = 0
-
-            vim.g.gitgutter_sign_added = '|'
-            vim.g.gitgutter_sign_modified = '|'
-            vim.g.gitgutter_sign_removed = '-'
-            vim.g.gitgutter_sign_removed_first_line = '‾'
-            vim.g.gitgutter_sign_removed_above_and_below = '{'
-            vim.g.gitgutter_sign_modified_removed = '~'
-            vim.cmd("GitGutterLineNrHighlightsEnable")
-        end,
-    }
+        "szw/vim-maximizer",
+        keys = {
+            { "<leader>pm", "<cmd>MaximizerToggle<CR>", desc = "Maximize/minimize a split" },
+        },
+    },
 
 }

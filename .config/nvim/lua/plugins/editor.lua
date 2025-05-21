@@ -43,5 +43,28 @@ return {
         config = function()
             require('mini.surround').setup()
         end
+    },
+
+    -- Split & join
+    {
+        "echasnovski/mini.splitjoin",
+        config = function()
+            local miniSplitJoin = require("mini.splitjoin")
+            miniSplitJoin.setup({
+                mappings = { toggle = "" }, -- Disable default mapping
+            })
+            vim.keymap.set({ "n", "x" }, "mj", function() miniSplitJoin.join() end, { desc = "Join arguments" })
+            vim.keymap.set({ "n", "x" }, "mk", function() miniSplitJoin.split() end, { desc = "Split arguments" })
+        end,
+    },
+
+    {
+        "gorbit99/codewindow.nvim",
+        config = function()
+            local codewindow = require('codewindow')
+            codewindow.setup()
+            codewindow.apply_default_keybinds()
+        end,
     }
+
 }

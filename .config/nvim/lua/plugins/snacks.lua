@@ -6,7 +6,16 @@ return {
     opts = {
         bigfile = { enabled = true },
         indent = { enabled = true },
-        input = { enabled = true },
+        explorer = { enabled = true },
+        input = {
+            enabled = true,
+            icon = " ",
+            icon_hl = "SnacksInputIcon",
+            icon_pos = "left",
+            prompt_pos = "title",
+            win = { style = "input" },
+            expand = true,
+        },
         lazygit = {
             configure = true,
             config = {
@@ -20,7 +29,24 @@ return {
                 style = "lazygit",
             },
         },
-        picker = { enabled = true },
+        picker = {
+            hidden = true,
+            ignored = true,
+            sources = {
+                files = {
+                    hidden = true,
+                    ignored = true,
+                },
+                explorer = {
+                    git_status_open = true,
+
+                },
+                git_files = {
+                    untracked = true,
+                    submodules = true,
+                },
+            },
+        },
         notifier = { enabled = true },
         quickfile = { enabled = true },
         scope = { enabled = true },

@@ -36,6 +36,16 @@ return {
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = true },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "<C-space>",
+                    node_incremental = "<C-space>",
+                    scope_incremental = "<C-s>",
+                    node_decremental = "<C-backspace>",
+                },
+            },
+            additional_vim_regex_highlighting = false,
         })
         end
 }

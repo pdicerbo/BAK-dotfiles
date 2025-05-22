@@ -56,8 +56,7 @@ export EDITOR=vim
 # decomment next line if you want to use
 # US keyboard layout and you want to be able
 # to use (italian) accented letter
-# setxkbmap -option compose:rwin
-setxkbmap us -variant intl
+# setxkbmap us -variant intl
 
 numlockx &
 

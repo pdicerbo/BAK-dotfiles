@@ -1,6 +1,6 @@
 gui:
   authorColors:
-    'Pierluigi Di Cerbo': 'blue' # use red for John Smith
+    'Pierluigi Di Cerbo': 'blue'
 git:
   mainBranches:
     - master
@@ -9,3 +9,4 @@ git:
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --pretty=medium {{branchName}} --oneline
   log:
     showWholeGraph: true
+  autoForwardBranches: none

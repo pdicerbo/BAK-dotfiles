@@ -11,12 +11,12 @@ return {
 		cppman.setup()
 
 		-- Make a keymap to open the word under cursor in CPPman
-		vim.keymap.set("n", "<leader>cm", function()
+		vim.keymap.set("n", "<leader>cw", function()
 			cppman.open_cppman_for(vim.fn.expand("<cword>"))
 		end, { desc = "open cppman for selected word" } )
 
 		-- Open search box
-		vim.keymap.set("n", "<leader>cc", function()
+		vim.keymap.set("n", "<leader>cpp", function()
 			cppman.input()
 		end, { desc = "open cppman" })
 

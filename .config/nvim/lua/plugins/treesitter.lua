@@ -10,6 +10,7 @@ return {
                 "lua",
                 "vim",
                 "vimdoc",
+                "diff",
                 "cpp",
                 "bash",
                 "cmake",

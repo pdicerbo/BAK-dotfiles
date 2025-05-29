@@ -2,6 +2,7 @@ gui:
   authorColors:
     'Pierluigi Di Cerbo': 'blue'
 git:
+  autoStageResolvedConflicts: false
   mainBranches:
     - master
   autoFetch: false
@@ -10,3 +11,6 @@ git:
   log:
     showWholeGraph: true
   autoForwardBranches: none
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --side-by-side

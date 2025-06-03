@@ -146,7 +146,10 @@ return {
                 },
             },
         },
-        notifier = { enabled = true },
+        notifier = {
+            enabled = true,
+            timeout = 6000,
+        },
         quickfile = { enabled = true },
         scope = { enabled = true },
         scroll = { enabled = true },

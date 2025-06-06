@@ -17,8 +17,8 @@ return {
             require("noice").setup({
                 lsp = {
                     progress = {
-						enabled = true,
-					},
+                        enabled = true,
+                    },
                     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
                     override = {
                         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -210,4 +210,16 @@ return {
             vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
         end,
     },
+
+    {
+        "sphamba/smear-cursor.nvim",
+        opts = {
+            cursor_color = "#00ffde",
+            stiffness = 0.6,
+            trailing_stiffness = 0.3,
+            trailing_exponent = 5,
+            gamma = 1,
+        },
+    },
+
 }

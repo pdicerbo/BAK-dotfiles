@@ -27,7 +27,7 @@ M.commands = {
             })
         end,
     },
-    -- {
+   -- {
     --   name = "Copilot: Actions",
     --   action = "<leader>ca",
     -- },
@@ -76,6 +76,10 @@ M.commands = {
     --   action = "<leader>ct",
     -- },
     {
+        name = "Undo tree",
+        action = "<leader>u",
+    },
+    {
         name = "Dim: Toggle",
         action = function()
             local snacks_dim = require("snacks").dim
@@ -87,8 +91,8 @@ M.commands = {
         end,
     },
     {
-        name = "Explorer",
-        action = "<leader>e",
+        name = "Open Cppman",
+        action = "<leader>cpp",
     },
     {
         name = "Find: Buffers",

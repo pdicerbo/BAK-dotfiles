@@ -215,10 +215,11 @@ return {
         "sphamba/smear-cursor.nvim",
         opts = {
             cursor_color = "#00ffde",
+            gamma = 1,
+            smear_terminal_mode = true,
             stiffness = 0.6,
             trailing_stiffness = 0.3,
             trailing_exponent = 5,
-            gamma = 1,
         },
     },
 

@@ -75,6 +75,7 @@ return {
             answer_header = "## Copilot ",
             error_header = "## Error ",
             prompts = prompts,
+            context = "buffers",
             -- model = "claude-3.7-sonnet",
             window = {
                 layout = 'vertical', -- 'vertical', 'horizontal', 'float', 'replace', or a function that returns the layout
@@ -127,10 +128,6 @@ return {
             chat.setup(opts)
 
             local select = require("CopilotChat.select")
-            vim.api.nvim_create_user_command("CopilotChatVisual", function(args)
-                chat.ask(args.args, { selection = select.visual })
-            end, { nargs = "*", range = true })
-
             -- Inline chat with Copilot
             vim.api.nvim_create_user_command("CopilotChatInline", function(args)
                 chat.ask(args.args, {
@@ -193,16 +190,9 @@ return {
             { "<leader>cr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
             -- { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
             { "<leader>cn", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
-            -- Chat with Copilot in visual mode
             {
-                "<leader>cv",
-                ":CopilotChatVisual",
-                mode = "x",
-                desc = "CopilotChat - Open in vertical split",
-            },
-            {
-                "<C-I>",
-                ":CopilotChatInline",
+                "<leader>ci",
+                ":CopilotChatInline ",
                 mode = { "n", "x" },
                 desc = "CopilotChat - Inline chat",
             },

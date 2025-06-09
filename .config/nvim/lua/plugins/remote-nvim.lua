@@ -1,6 +1,6 @@
 return {
 
-   {
+    {
         "coffebar/neovim-project",
         opts = {
             projects = { -- define project roots
@@ -34,8 +34,10 @@ return {
         },
         lazy = false,
         priority = 100,
-        vim.keymap.set('n', '<M-f>', '<cmd>NeovimProjectDiscover<CR>', { desc = "Discover Projects" }),
-        vim.keymap.set('n', '<M-F>', '<cmd>NeovimProjectLoadRecent<CR>', { desc = "Open Last Session" })
+        keys = {
+            { "<M-f>", "<cmd>NeovimProjectDiscover history<CR>", desc = "Discover Projects" },
+            { "<M-d>", "<cmd>NeovimProjectHistory<CR>", desc = "Projects History" },
+        }
     },
 
 }

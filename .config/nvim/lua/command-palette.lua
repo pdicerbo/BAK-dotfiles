@@ -27,51 +27,35 @@ M.commands = {
             })
         end,
     },
-   -- {
-    --   name = "Copilot: Actions",
-    --   action = "<leader>ca",
-    -- },
-    -- {
-    --   name = "Copilot: Action - Commit",
-    --   action = ":CopilotChatCommit",
-    -- },
-    -- {
-    --   name = "Copilot: Action - Docs",
-    --   action = ":CopilotChatDocs",
-    -- },
-    -- {
-    --   name = "Copilot: Action - Explain",
-    --   action = ":CopilotChatExplain",
-    -- },
-    -- {
-    --   name = "Copilot: Action - Fix",
-    --   action = ":CopilotChatFix",
-    -- },
-    -- {
-    --   name = "Copilot: Action - Optimize",
-    --   action = ":CopilotChatOptimize",
-    -- },
-    -- {
-    --   name = "Copilot: Action - Review",
-    --   action = ":CopilotChatReview",
-    -- },
-    -- {
-    --   name = "Copilot: Action - Tests",
-    --   action = ":CopilotChatTests",
-    -- },
-    -- {
-    --   name = "Copilot: Close",
-    --   action = "<leader>cc",
-    -- },
-    -- {
-    --   name = "Copilot: Open",
-    --   action = "<leader>co",
-    -- },
-    -- {
-    --   name = "Copilot: Reset",
-    --   action = "<leader>cr",
-    -- },
-    -- {
+    {
+        name = "Copilot: Prompt actions",
+        action = "<leader>cp",
+    },
+    {
+        name = "Copilot: Action - Commit",
+        action = ":CopilotChatCommit",
+    },
+    {
+        name = "Copilot: Action - Explain",
+        action = ":CopilotChatExplain",
+    },
+    {
+        name = "Copilot: Action - Fix",
+        action = ":CopilotChatFix",
+    },
+    {
+        name = "Copilot: Action - Optimize",
+        action = ":CopilotChatOptimize",
+    },
+    {
+        name = "Copilot: Action - Review",
+        action = ":CopilotChatReview",
+    },
+   --  {
+   --      name = "Copilot: Action - Tests",
+   --      action = ":CopilotChatTests",
+   --  },
+   -- -- {
     --   name = "Copilot: Toogle",
     --   action = "<leader>ct",
     -- },

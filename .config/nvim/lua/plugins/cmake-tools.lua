@@ -41,7 +41,7 @@ return {
         vim.keymap.set("n", "<leader>cB",   ":CMakeBuild!<CR>",          { desc = "CMake Rebuild project" })
         vim.keymap.set("n", "<leader>cg",   ":CMakeGenerate<CR>",        { desc = "CMake Generate project" })
         vim.keymap.set("n", "<leader>cG",   ":CMakeGenerate!<CR>",       { desc = "CMake Reconfigure project" })
-        vim.keymap.set("n", "<leader>ci",   ":CMakeInstall<CR>",         { desc = "CMake Install project" })
+        vim.keymap.set("n", "<leader>cI",   ":CMakeInstall<CR>",         { desc = "CMake Install project" })
         vim.keymap.set("n", "<F8>",         ":CMakeInstall<CR>",         { desc = "CMake Install project" })
         vim.keymap.set("n", "<leader>cs",   ":CMakeSelectCwd<CR>",       { desc = "CMake Build project" })
         vim.keymap.set("n", "<leader>ct",   ":CMakeRunTest<CR>",         { desc = "CMake Run Test" })

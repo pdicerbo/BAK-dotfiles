@@ -26,7 +26,6 @@ prj_0lf_test/
 project_builder/
 reflection_generator/
 .dotfiles-bare-repo/
-.remote_bashrc
 .ssh
 *.wget-hsts
 shared

@@ -13,3 +13,16 @@ git clone --bare https://github.com/pdicerbo/dotfiles.git $HOME/.dotfiles-bare-r
 ```
 
 if this command fails, is because some files are already present in the home directory. (Re)Move the files and try again.
+
+## prevent untracked files from showing up
+
+```bash
+dotfiles config --local status.showUntrackedFiles no
+```
+
+## overwrite the bashrc file witht the remote one:
+
+```bash
+cp .remote_bashrc $HOME/.bashrc
+```
+

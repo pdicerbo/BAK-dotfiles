@@ -1,7 +1,7 @@
 #
 # ~/.bash_profile
 #
-export PATH=$PATH:$HOME/.scripts
+export PATH=$PATH:$HOME/.scripts:$HOME/.local/bin
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

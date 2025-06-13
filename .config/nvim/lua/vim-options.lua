@@ -73,6 +73,8 @@ vim.keymap.set("n", "<leader>so", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     pattern = {"*.trc", "*.log"},
     callback = function()

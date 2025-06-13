@@ -21,8 +21,8 @@ return {
                 opts = {
                     show = "always",
                     position = "belowright",
-                    size = 15,
-                    auto_close_when_success = false,
+                    size = 20,
+                    auto_close_when_success = true,
                 }
             },
             cmake_runner = {
@@ -30,8 +30,8 @@ return {
                 opts = {
                     show = "always",
                     position = "belowright",
-                    size = 15,
-                    auto_close_when_success = false,
+                    size = 20,
+                    auto_close_when_success = true,
                 }
             },
         })

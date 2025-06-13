@@ -26,3 +26,14 @@ dotfiles config --local status.showUntrackedFiles no
 cp .remote_bashrc $HOME/.bashrc
 ```
 
+## download delta themes and install it:
+```
+wget https://raw.githubusercontent.com/dandavison/delta/main/themes.gitconfir
+mv themes.gitconfig .themes.gitconfig
+```
+
+
+# Other tools required:
+
+[delta](https://github.com/dandavison/delta): [download here](https://dandavison.github.io/delta/installation.html)
+

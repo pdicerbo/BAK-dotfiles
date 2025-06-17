@@ -63,8 +63,9 @@ return {
                 enhanced_diff_hl = true,
                 keymaps = {
                     file_panel = {
-                        { "n",  "u",     actions.scroll_view(-0.25), { desc = "Scroll the view up" } },
-                        { "n",  "d",     actions.scroll_view(0.25),  { desc = "Scroll the view down" } },
+                        { "n",  "u",    actions.scroll_view(-0.25),                                     { desc = "Scroll the view up" } },
+                        { "n",  "d",    actions.scroll_view(0.25),                                      { desc = "Scroll the view down" } },
+                        { "n",  "gf",   function() actions.goto_file_edit() vim.cmd 'tabclose #' end,   { desc = "Go to file in the old tab" } },
                     },
                 }
             })

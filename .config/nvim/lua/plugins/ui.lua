@@ -223,4 +223,22 @@ return {
         },
     },
 
+    {
+        "nvzone/floaterm",
+        dependencies = "nvzone/volt",
+        opts = {
+            border = true,
+            mappings = {
+                term = function(buf)
+                    vim.keymap.set({ "n", "t" }, "<C-t>", function()
+                        require("floaterm.api").new_term "Terminal"
+                    end, { buffer = buf })
+                end,
+            },
+        },
+        cmd = "FloatermToggle",
+        keys = {
+            { "<leader>tt", "<cmd>FloatermToggle<cr>", desc = "Toggle Floaterm terminal" },
+        },
+     },
 }

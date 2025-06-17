@@ -93,6 +93,13 @@ return {
             -- za to fold at cursor location is already enabled
             vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
             vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+            vim.keymap.set('n', 'K', function()
+                local winid = require('ufo').peekFoldedLinesUnderCursor()
+                if not winid then
+                    -- choose one of coc.nvim and nvim lsp
+                    vim.lsp.buf.hover()
+                end
+            end, { desc = "Peek Folded Lines" })
         end,
     },
 

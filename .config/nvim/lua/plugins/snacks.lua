@@ -226,6 +226,7 @@ return {
         { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
         { "<leader>GB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
         { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+        { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit log" },
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
         { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
         { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },

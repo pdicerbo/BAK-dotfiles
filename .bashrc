@@ -12,8 +12,9 @@ alias diff='diff --color=auto'
 alias ncdu='ncdu --color dark'
 # alias e='emacs -nw'
 alias p='python'
-alias sshfs_atsapp234='sshfs piedicer@ATS.LOCAL@atsapp234.ats.local:/srv/projects/monitoring_stack /home/pierluigi/DockerEnvs/sshfs/monitor_stack_atsapp234'
+alias sshfs_atsapp234='sshfs atsapp234:/srv/projects/ /home/pierluigi/DockerEnvs/sshfs/monitor_stack_atsapp234'
 alias sshfs_atsapp235='sshfs atsapp235:/srv/projects/ /home/pierluigi/DockerEnvs/sshfs/srv_prj_atsapp235'
+alias sshfs_atsuwk070='sshfs atsuwk070:/srv/projects/EXP.0_BP_DEV/BE/docker_bp_dev_apps/ /home/pierluigi/DockerEnvs/sshfs/dev_atsuwk070'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles-bare-repo --work-tree=$HOME"
 
 # sourcing git-completion.bash

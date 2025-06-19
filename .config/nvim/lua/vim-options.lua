@@ -87,10 +87,7 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 -- Automatically update Copilot workspace folder on directory change
 vim.api.nvim_create_autocmd("DirChanged", {
     callback = function(args)
-        -- vim.schedule(function()
-        -- function()
-            vim.g.copilot_workspace_folders = { vim.fn.getcwd() }
-            vim.cmd("Copilot restart")
-        -- end
+        vim.g.copilot_workspace_folders = { vim.fn.getcwd() }
+        vim.cmd("Copilot restart")
     end,
 })

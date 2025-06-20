@@ -57,7 +57,7 @@ return {
             -- -- Set <C-j> to next suggestion, <C-k> to previous suggestion, <C-l> to suggest
             keymap("i", "<C-j>", "<Plug>(copilot-next)", opts)
             keymap("i", "<C-k>", "<Plug>(copilot-previous)", opts)
-            keymap("i", "<C-h>", "<Plug>(copilot-suggest)", opts)
+            keymap("i", "<C-p>", "<Plug>(copilot-suggest)", opts)
             --
             -- -- Set <C-d> to dismiss suggestion
             keymap("i", "<C-d>", "<Plug>(copilot-dismiss)", opts)

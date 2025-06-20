@@ -4,6 +4,7 @@ return {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
+            numhl = true,
             preview_config = {
                 border = 'rounded',
             },
@@ -43,8 +44,10 @@ return {
                 map("n", "<leader>gd", gs.diffthis, "Diff this")
                 map("n", "<leader>gD", function() gs.diffthis("~") end, "Diff this ~")
 
-                -- Text object
-                -- map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
+                -- set inline highlights for previews
+                vim.api.nvim_set_hl(0, "GitSignsAddInline", { bg = "#233524", fg = "#a9ff68" })
+                vim.api.nvim_set_hl(0, "GitSignsChangeInline", { bg = "#2e3440", fg = "#e0af68" })
+                vim.api.nvim_set_hl(0, "GitSignsDeleteInline", { bg = "#3a2323", fg = "#ff6c6b" })
             end,
         },
     },

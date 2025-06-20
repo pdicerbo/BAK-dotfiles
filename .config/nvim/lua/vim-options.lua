@@ -33,16 +33,19 @@ vim.keymap.set( "v", "<M-Down>",    ":m '>+1<CR>gv=gv", { desc = "Shift visual s
 vim.keymap.set( "v", "<M-Up>",      ":m '<-2<CR>gv=gv", { desc = "Shift visual selected lines up" } ) -- Shift visual selected lines up
 
 -- shift+arrow selection
-vim.keymap.set( "n", "<S-Up>",      "v<Up>",          { desc = "shift+Up arrow selection (normal mode)" })
-vim.keymap.set( "n", "<S-Down>",    "v<Down>",        { desc = "shift+Down arrow selection (normal mode)" })
-vim.keymap.set( "v", "<S-Up>",      "<Up>",           { desc = "shift+Up arrow selection (visual mode)" })
-vim.keymap.set( "v", "<S-Down>",    "<Down>",         { desc = "shift+Down arrow selection (visual mode)" })
-vim.keymap.set( "v", "<S-Left>",    "<Left>",         { desc = "shift+Left arrow selection (visual mode)" })
-vim.keymap.set( "v", "<S-Right>",   "<Right>",        { desc = "shift+Right arrow selection (visual mode)" })
-vim.keymap.set( "i", "<S-Up>",      "<Esc>v<Up>",     { desc = "shift+Up arrow selection (insert mode)" })
-vim.keymap.set( "i", "<S-Down>",    "<Esc>v<Down>",   { desc = "shift+Down arrow selection (insert mode)" })
-vim.keymap.set( "i", "<S-Left>",    "<Esc>v<Left>",   { desc = "shift+Left arrow selection (insert mode)" })
-vim.keymap.set( "i", "<S-Right>",   "<Esc>v<Right>",  { desc = "shift+Right arrow selection (insert mode)" })
+vim.keymap.set( "n", "<S-Up>",      "v<Up>",            { desc = "shift+Up arrow selection (normal mode)" })
+vim.keymap.set( "n", "<S-Down>",    "v<Down>",          { desc = "shift+Down arrow selection (normal mode)" })
+vim.keymap.set( "v", "<S-Up>",      "<Up>",             { desc = "shift+Up arrow selection (visual mode)" })
+vim.keymap.set( "v", "<S-Down>",    "<Down>",           { desc = "shift+Down arrow selection (visual mode)" })
+vim.keymap.set( "v", "<S-Left>",    "<Left>",           { desc = "shift+Left arrow selection (visual mode)" })
+vim.keymap.set( "v", "<S-Right>",   "<Right>",          { desc = "shift+Right arrow selection (visual mode)" })
+vim.keymap.set( "i", "<S-Up>",      "<Esc>v<Up>",       { desc = "shift+Up arrow selection (insert mode)" })
+vim.keymap.set( "i", "<S-Down>",    "<Esc>v<Down>",     { desc = "shift+Down arrow selection (insert mode)" })
+vim.keymap.set( "i", "<S-Left>",    "<Esc>v<Left>",     { desc = "shift+Left arrow selection (insert mode)" })
+vim.keymap.set( "i", "<S-Right>",   "<Esc>v<Right>",    { desc = "shift+Right arrow selection (insert mode)" })
+
+-- delete previous word in insert mode
+vim.keymap.set( "i", "<C-h>",       "<C-w>",            { desc = "Delete previous word in insert mode" })
 
 -- Join next line with the current one keeping the cursor in the same position
 vim.keymap.set("n", "J", "mzJ`z")

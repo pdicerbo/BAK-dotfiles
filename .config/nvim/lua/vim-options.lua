@@ -91,6 +91,8 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 vim.api.nvim_create_autocmd("DirChanged", {
     callback = function(args)
         vim.g.copilot_workspace_folders = { vim.fn.getcwd() }
-        vim.cmd("Copilot restart")
+        if vim.fn.exists(":Copilot") == 2 then
+            vim.cmd("Copilot restart")
+        end
     end,
 })

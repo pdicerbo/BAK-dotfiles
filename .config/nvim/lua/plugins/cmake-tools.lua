@@ -43,10 +43,11 @@ return {
         vim.keymap.set("n", "<leader>cG",   ":CMakeGenerate!<CR>",       { desc = "CMake Reconfigure project" })
         vim.keymap.set("n", "<leader>cI",   ":CMakeInstall<CR>",         { desc = "CMake Install project" })
         vim.keymap.set("n", "<F8>",         ":CMakeInstall<CR>",         { desc = "CMake Install project" })
-        vim.keymap.set("n", "<leader>cs",   ":CMakeSelectCwd<CR>",       { desc = "CMake Build project" })
+        vim.keymap.set("n", "<leader>cs",   ":CMakeSelectCwd<CR>",       { desc = "CMake Select Current Working Directory" })
         vim.keymap.set("n", "<leader>ct",   ":CMakeRunTest<CR>",         { desc = "CMake Run Test" })
         vim.keymap.set("n", "<leader>cT",   ":CMakeSelectBuildType<CR>", { desc = "CMake Select Build Type" })
         vim.keymap.set("n", "<leader>cS",   ":CMakeSettings<CR>",        { desc = "CMake Settings" })
         vim.keymap.set("n", "<leader>cx",   ":CMakeClean<CR>",           { desc = "CMake Clean all targets" })
+        vim.keymap.set("n", "<leader>cQ",   ":CMakeStopExecutor<CR>",    { desc = "CMake Stop execution" })
     end,
 }

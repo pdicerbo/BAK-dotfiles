@@ -76,7 +76,11 @@ vim.keymap.set("n", "<leader>so", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
+-- toggle line wrap
 vim.keymap.set("n", "<leader>wl", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
+
+-- reopen latest buffer (historically used)
+vim.keymap.set("n", "<leader>bb", "<cmd>b#<CR>", { desc = "Reopen latest buffer" })
 
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 

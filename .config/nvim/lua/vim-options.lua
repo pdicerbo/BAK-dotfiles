@@ -31,6 +31,7 @@ vim.keymap.set( "v", "<M-j>",       ":m '>+1<CR>gv=gv", { desc = "Shift visual s
 vim.keymap.set( "v", "<M-k>",       ":m '<-2<CR>gv=gv", { desc = "Shift visual selected lines up" } ) -- Shift visual selected lines up
 vim.keymap.set( "v", "<M-Down>",    ":m '>+1<CR>gv=gv", { desc = "Shift visual selected lines down" } ) -- Shift visual selected lines down
 vim.keymap.set( "v", "<M-Up>",      ":m '<-2<CR>gv=gv", { desc = "Shift visual selected lines up" } ) -- Shift visual selected lines up
+vim.keymap.set( "n", "<C-a>",       "gg<S-v>G", { desc = "Select all lines in buffer (overrides default <C-a> behavior, i.e. incrementing the number under cursor)" }) -- Select all lines in buffer
 
 -- shift+arrow selection
 vim.keymap.set( "n", "<S-Up>",      "v<Up>",            { desc = "shift+Up arrow selection (normal mode)" })
@@ -45,7 +46,13 @@ vim.keymap.set( "i", "<S-Left>",    "<Esc>v<Left>",     { desc = "shift+Left arr
 vim.keymap.set( "i", "<S-Right>",   "<Esc>v<Right>",    { desc = "shift+Right arrow selection (insert mode)" })
 
 -- delete previous word in insert mode
-vim.keymap.set( "i", "<C-h>",       "<C-w>",            { desc = "Delete previous word in insert mode" })
+-- delete previous word in insert mode and normal mode
+vim.keymap.set("i", "<C-h>", "<C-w>", { desc = "Delete previous word in insert mode" })
+vim.keymap.set("n", "<C-h>", "db", { desc = "Delete previous word in normal mode" })
+
+-- delete next word in insert mode and normal mode
+vim.keymap.set("i", "<C-Del>", "<C-o>dw", { desc = "Delete next word in insert mode" })
+vim.keymap.set("n", "<C-Del>", "dw", { desc = "Delete next word in normal mode" })
 
 -- Join next line with the current one keeping the cursor in the same position
 vim.keymap.set("n", "J", "mzJ`z")

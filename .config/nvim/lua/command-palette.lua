@@ -94,10 +94,18 @@ M.commands = {
         name = "Find: Files",
         action = "<leader>ff",
     },
-    -- {
-    --   name = "Find: Location List",
-    --   action = "<leader>fl",
-    -- },
+    {
+      name = "Fun Rain (Fr)",
+      action = "<leader>Fr",
+    },
+    {
+      name = "Fun Game of Life (Fg)",
+      action = "<leader>Fg",
+    },
+    {
+      name = "Fun scramble (Fs)",
+      action = "<leader>Fs",
+    },
     -- {
     --   name = "Find: LSP Declarations",
     --   action = "<leader>flD",

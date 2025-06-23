@@ -94,12 +94,16 @@ return {
 
         -- Format on save
         vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
             callback = function()
-                vim.lsp.buf.format({ async = false })
+                local clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+                for _, client in ipairs(clients) do
+                    if client.supports_method("textDocument/formatting") then
+                        vim.lsp.buf.format({ async = false })
+                        return
+                    end
+                end
+                -- No LSP client supports formatting; do nothing
             end,
         })
-        --     end,
-        -- })
     end,
 }

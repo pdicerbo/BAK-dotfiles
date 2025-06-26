@@ -1,3 +1,12 @@
+-- Terminal Mappings
+local function term_nav(dir)
+    return function(self)
+        return self:is_floating() and "<c-" .. dir .. ">" or vim.schedule(function()
+            vim.cmd.wincmd(dir)
+        end)
+    end
+end
+
 return {
     "folke/snacks.nvim",
     priority = 1000,
@@ -163,7 +172,17 @@ return {
         },
         scroll = { enabled = true },
         statuscolumn = { enabled = true },
-        terminal = { enabled = true },
+        terminal = {
+            win = {
+                keys = {
+                    nav_h = { "<C-h>", term_nav("h"), desc = "Go to Left Window", expr = true, mode = "t" },
+                    nav_j = { "<C-j>", term_nav("j"), desc = "Go to Lower Window", expr = true, mode = "t" },
+                    nav_k = { "<C-k>", term_nav("k"), desc = "Go to Upper Window", expr = true, mode = "t" },
+                    nav_l = { "<C-l>", term_nav("l"), desc = "Go to Right Window", expr = true, mode = "t" },
+                },
+            },
+        },
+
         words = { enabled = true },
     },
     keys = {
@@ -241,6 +260,17 @@ return {
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
         { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
         { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
+        { "<leader>tt", function()
+            local terms = Snacks.terminal.list()
+            if terms and #terms > 0 then
+                for _, term in ipairs(terms) do
+                    term:toggle()
+                end
+            else
+                Snacks.terminal()
+            end
+        end, desc = "Toggle All Terminals"
+        },
         { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
         { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
     },

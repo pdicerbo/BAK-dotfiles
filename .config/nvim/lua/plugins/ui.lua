@@ -238,7 +238,7 @@ return {
         },
         cmd = "FloatermToggle",
         keys = {
-            { "<leader>tt", "<cmd>FloatermToggle<cr>", desc = "Toggle Floaterm terminal" },
+            { "<leader>tf", "<cmd>FloatermToggle<cr>", desc = "Toggle Floaterm terminal" },
         },
      },
 }

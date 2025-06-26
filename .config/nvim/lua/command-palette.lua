@@ -27,42 +27,42 @@ M.commands = {
             })
         end,
     },
+
     {
         name = "Copilot: Prompt actions",
         action = "<leader>cp",
     },
+
     {
         name = "Copilot: Action - Commit",
         action = ":CopilotChatCommit",
     },
+
     {
         name = "Copilot: Action - Explain",
         action = ":CopilotChatExplain",
     },
+
     {
         name = "Copilot: Action - Fix",
         action = ":CopilotChatFix",
     },
+
     {
         name = "Copilot: Action - Optimize",
         action = ":CopilotChatOptimize",
     },
+
     {
         name = "Copilot: Action - Review",
         action = ":CopilotChatReview",
     },
-   --  {
-   --      name = "Copilot: Action - Tests",
-   --      action = ":CopilotChatTests",
-   --  },
-   -- -- {
-    --   name = "Copilot: Toogle",
-    --   action = "<leader>ct",
-    -- },
+
     {
         name = "Undo tree",
         action = "<leader>u",
     },
+
     {
         name = "Dim: Toggle",
         action = function()
@@ -74,178 +74,221 @@ M.commands = {
             end
         end,
     },
+
     {
         name = "Open Cppman",
         action = "<leader>cpp",
     },
+
     {
         name = "Find: Buffers",
         action = "<leader>fb",
     },
+
     {
         name = "Find: Diagnostics (Buffer)",
         action = "<leader>fd",
     },
+
     {
         name = "Find: Diagnostics (Workspace)",
         action = "<leader>fD",
     },
+
     {
         name = "Find: Files",
         action = "<leader>ff",
     },
+
     {
-      name = "Fun Rain (Fr)",
-      action = "<leader>Fr",
+        name = "Fun Rain (Fr)",
+        action = "<leader>Fr",
     },
+
     {
-      name = "Fun Game of Life (Fg)",
-      action = "<leader>Fg",
+        name = "Fun Game of Life (Fg)",
+        action = "<leader>Fg",
     },
+
     {
-      name = "Fun scramble (Fs)",
-      action = "<leader>Fs",
+        name = "Fun scramble (Fs)",
+        action = "<leader>Fs",
     },
-    -- {
-    --   name = "Find: LSP Declarations",
-    --   action = "<leader>flD",
-    -- },
-    -- {
-    --   name = "Find: LSP Definitions",
-    --   action = "<leader>fld",
-    -- },
-    -- {
-    --   name = "Find: LSP Implementations",
-    --   action = "<leader>fli",
-    -- },
-    -- {
-    --   name = "Find: LSP References",
-    --   action = "<leader>flr",
-    -- },
-    -- {
-    --   name = "Find: LSP Symbols (Buffer)",
-    --   action = "<leader>fls",
-    -- },
-    -- {
-    --   name = "Find: LSP Symbols (Workspace)",
-    --   action = "<leader>flS",
-    -- },
-    -- {
-    --   name = "Find: LSP Type Definitions",
-    --   action = "<leader>fly",
-    -- },
+
+    {
+        name = "Cmake: Generate",
+        action = "<leader>cg",
+    },
+
+    {
+        name = "Cmake: Reconfigure",
+        action = "<leader>cG",
+    },
+
+    {
+        name = "Cmake: Build",
+        action = "<leader>cb",
+    },
+
+    {
+        name = "Cmake: Rebuild",
+        action = "<leader>cB",
+    },
+
+    {
+        name = "Cmake: Clean",
+        action = "<leader>cx",
+    },
+
+    {
+        name = "Cmake: Install",
+        action = "<leader>cI",
+    },
+
+    {
+        name = "Cmake: Stop",
+        action = "<leader>cQ",
+    },
+
     {
         name = "Find: Undo",
         action = "<leader>fu",
     },
+
     {
         name = "Git: Browse",
         action = function()
             Snacks.gitbrowse()
         end,
     },
+
     {
         name = "Git: Diff",
         action = "<leader>gdo",
     },
-    -- {
-    --   name = "LSP: Rename",
-    --   action = "<leader>lr",
-    -- },
+
+    {
+      name = "Floaterm: Toggle",
+      action = "<leader>tt",
+    },
+
     -- {
     --   name = "LSP: Actions",
     --   action = "<leader>la",
     -- },
+
     -- {
     --   name = "LSP: Format",
     --   action = "<leader>lf",
     -- },
+
     -- {
     --   name = "LSP: Diagnostics (Quickfix List)",
     --   action = "<leader>lq",
     -- },
+
     -- {
     --   name = "LSP: Diagnostics (Location List)",
     --   action = "<leader>lL",
     -- },
+
     -- {
     --   name = "LSP: Lint",
     --   action = "<leader>ll",
     -- },
+
     {
         name = "LSP: Hover Documentation",
         action = "K",
     },
+
     {
         name = "LSP: Hover Diagnostics",
         action = "J",
     },
+
     {
         name = "LSP: Hover Signature Documentation",
         action = function()
             vim.lsp.buf.signature_help()
         end,
     },
+
     {
         name = "LSP: Go to Declaration",
         action = "gD",
     },
+
     {
         name = "LSP: Go to Definitions",
         action = "gd",
     },
+
     {
         name = "LSP: Go to References",
         action = "gr",
     },
+
     {
         name = "LSP: Go to Implementation",
         action = "gI",
     },
+
     {
         name = "LSP: Go to Type Definition",
         action = "gy",
     },
+
     {
         name = "Marks: Find",
         action = "<leader>fm",
     },
+
     {
         name = "Marks: New",
         action = ":NewMark",
     },
+
     {
         name = "Search: Buffers",
         action = "<leader>f/",
     },
+
     -- {
     --   name = "Tab: Close",
     --   action = ":tabclose",
     -- },
+
     -- {
     --   name = "Tab: New",
     --   action = ":tabnew",
     -- },
+
     -- {
     --   name = "Tab: New Split",
     --   action = ":tab split",
     -- },
+
     -- {
     --   name = "Tab: Next",
     --   action = ":tabnext",
     -- },
+
     -- {
     --   name = "Tab: Previous",
     --   action = ":tabprevious",
     -- },
+
     -- {
     --   name = "Todo Comments: Quickfix List",
     --   action = ":TodoQuickFix",
     -- },
+
     -- {
     --   name = "Todo Comments: Location List",
     --   action = ":TodoLocList",
     -- },
+
 }
 
 function M.show_commands()
@@ -268,6 +311,7 @@ function M.show_commands()
         format = function(item, _)
             return {
                 { item.text, item.text_hl },
+
             }
         end,
         confirm = function(picker, item)

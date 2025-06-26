@@ -168,19 +168,19 @@ M.commands = {
     },
 
     {
-      name = "Floaterm: Toggle",
-      action = "<leader>tt",
+        name = "Floaterm: Toggle",
+        action = "<leader>tt",
     },
 
-    -- {
-    --   name = "LSP: Actions",
-    --   action = "<leader>la",
-    -- },
+    {
+        name = "Gitlab choose Merge Request",
+        action = "glc",
+    },
 
-    -- {
-    --   name = "LSP: Format",
-    --   action = "<leader>lf",
-    -- },
+    {
+        name = "Gitlab Start Review",
+        action = "glS",
+    },
 
     -- {
     --   name = "LSP: Diagnostics (Quickfix List)",

@@ -53,6 +53,7 @@ shared
 .config/tmux/plugins/*
 .config/vlc/*
 .config/xfce4/*
+.config/go/
 .dbeaver/*
 .devpod/*
 .docker/*

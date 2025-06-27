@@ -2,8 +2,7 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
-vim.cmd("au VimLeave,VimSuspend * set guicursor=n-ci:hor30-iCursor-blinkwait300-blinkon200-blinkoff150")
-
+vim.cmd("set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20")
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

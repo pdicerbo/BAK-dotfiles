@@ -10,11 +10,11 @@ normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 offset = { x = 1, y = 0 }
 
 [cursor]
-style = { shape = "Underline", blinking = "On" }
+style = { shape = "Underline", blinking = "Always" }
 unfocused_hollow = false
 thickness = 0.15
 vi_mode_style = "None"
-blink_interval = 500
+blink_interval = 400
 
 [colors]
 draw_bold_text_with_bright_colors = true

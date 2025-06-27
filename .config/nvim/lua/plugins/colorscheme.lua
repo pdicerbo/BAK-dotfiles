@@ -10,18 +10,6 @@ return {
     },
 
     {
-        "navarasu/onedark.nvim",
-        priority = 1000, -- make sure to load this before all the other start plugins
-        config = function()
-            require('onedark').setup {
-                style = 'deep',
-            }
-            -- Enable theme
-            require('onedark').load()
-        end
-    },
-
-    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
@@ -47,5 +35,32 @@ return {
         lazy = false,
         priority = 1000,
         opts = {},
-    }
+    },
+
+    {
+        "shaunsingh/nord.nvim",
+        lazy = false,
+        priority = 1000,
+    },
+
+    {
+        "Mofiqul/dracula.nvim",
+        lazy = false,
+        priority = 1000,
+    },
+
+    {
+        "marko-cerovac/material.nvim",
+        lazy = false,
+        priority = 1000,
+    },
+
+    {
+        "olimorris/onedarkpro.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd("colorscheme onedark")
+        end
+    },
 }

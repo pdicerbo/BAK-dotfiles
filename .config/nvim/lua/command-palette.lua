@@ -254,10 +254,10 @@ M.commands = {
         action = "<leader>f/",
     },
 
-    -- {
-    --   name = "Tab: Close",
-    --   action = ":tabclose",
-    -- },
+    {
+        name = "Print Colorscheme",
+        action = ":echo g:colors_name",
+    },
 
     -- {
     --   name = "Tab: New",

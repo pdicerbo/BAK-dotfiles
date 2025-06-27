@@ -52,8 +52,8 @@ hide_when_typing = true
 [selection]
 save_to_clipboard = true
 
-# [env]
-# TERM = "xterm-256color"
+[env]
+TERM = "xterm-256color"
 #
 # Xcursor size must be set globally, not per-terminal
 # Xcursor.size = 10

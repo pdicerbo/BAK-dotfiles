@@ -79,7 +79,7 @@ local themes = {
 -- local altkey       = "Mod1"
 local chosen_theme = themes[11]
 local modkey       = "Mod4"
-local terminal     = "urxvt"
+local terminal     = "alacritty"
 local editor       = "emacs -nw" -- os.getenv("EDITOR") or "nano"
 local gui_editor   = "gvim"
 local browser      = "google-chrome-stable"
@@ -394,8 +394,9 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey }, "x", function () awful.spawn("urxvt -geometry 350x100 -e tmux", { floating  = true, placement = awful.placement.centered, }) end,
-          {description = "open a tmux session into a bigger urxvt terminal", group = "launcher"}),
+    -- awful.key({ modkey }, "x", function () awful.spawn("urxvt -geometry 350x100 -e tmux", { floating  = true, placement = awful.placement.centered, }) end,
+    awful.key({ modkey }, "x", function () awful.spawn("alacritty -o 'window.dimensions = { columns = 350, lines = 100 }' -e tmux", { floating  = true, placement = awful.placement.centered, }) end,
+          {description = "open a tmux session into a bigger alacritty terminal", group = "launcher"}),
     awful.key({ modkey, "Shift" }, "x", function () awful.spawn.with_shell("central_tdrop_toggle") end,
           {description = "toggle centralized urxvt dropdown terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,

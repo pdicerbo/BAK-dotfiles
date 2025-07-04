@@ -19,9 +19,6 @@ return {
                 map("n", "]h", gs.next_hunk, "Next Hunk")
                 map("n", "[h", gs.prev_hunk, "Prev Hunk")
 
-                map("n", "hn", gs.next_hunk, "Next Hunk")
-                map("n", "hp", gs.prev_hunk, "Prev Hunk")
-
                 -- Actions
                 map("n", "<leader>gs", gs.stage_hunk, "Stage hunk")
                 map("n", "<leader>gr", gs.reset_hunk, "Reset hunk")

@@ -77,7 +77,7 @@ return {
         },
         offsetEncoding = { 'utf-8', 'utf-16' },
     },
-    on_attach = function()
+    on_attach = function(client, bufnr)
         vim.api.nvim_buf_create_user_command(0, 'LspClangdSwitchSourceHeader', function()
             switch_source_header(0)
         end, { desc = 'Switch between source/header' })
@@ -85,6 +85,9 @@ return {
         vim.api.nvim_buf_create_user_command(0, 'LspClangdShowSymbolInfo', function()
             symbol_info()
         end, { desc = 'Show symbol info' })
+
+        require("nvim-navic").attach(client, bufnr)
+        require("nvim-navbuddy").attach(client, bufnr)
 
         -- add custom keymaps
         -- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts) -- already provided by folke.snacks

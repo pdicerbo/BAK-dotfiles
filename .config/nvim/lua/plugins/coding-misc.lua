@@ -57,5 +57,74 @@ return {
         config = function()
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
         end,
-    }
+    },
+
+    {
+        "SmiteshP/nvim-navic",
+        dependencies = { "neovim/nvim-lspconfig" },
+        config = function()
+            require("nvim-navic").setup({
+                icons = {
+                    File = "󰈙 ",
+                    Module        = " ",
+                    Namespace = "󰌗 ",
+                    Package = "󰏖 ",
+                    Class = "󰠱 ",
+                    Method = "󰊕 ",
+                    Property = "󰜢 ",
+                    Field = "󰇽 ",
+                    Constructor   = " ",
+                    Enum = "󰕘 ",
+                    Interface = "󰕘 ",
+                    Function = "󰊕 ",
+                    Variable = "󰂡 ",
+                    Constant = "󰏿 ",
+                    String = "󰅬 ",
+                    Number = "󰎠 ",
+                    Boolean = "󰔨 ",
+                    Array = "󰅪 ",
+                    Object = "󰅩 ",
+                    Key = "󰌋 ",
+                    Null          = "󰟢 ",
+                    EnumMember    = " ",
+                    Struct = "󰌗 ",
+                    Event = "",
+                    Operator      = "󰆕 ",
+                    TypeParameter = "󰊄 ",
+                },
+                lsp = {
+                    auto_attach = true,
+                    preference = nil, -- use default LSP client
+                },
+                highlight = true,
+            })
+        end,
+    },
+
+    {
+        "hasansujon786/nvim-navbuddy",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+            "numToStr/Comment.nvim",        -- Optional
+            "nvim-telescope/telescope.nvim" -- Optional
+        },
+        config = function()
+            require("nvim-navbuddy").setup({
+                lsp = {
+                    auto_attach = true,
+                    preference = nil, -- use default LSP client
+                },
+                window = {
+                    border = "rounded",
+                    position = "50%",
+                    size = {
+                        width = "50%",
+                        height = "50%",
+                    },
+                },
+            })
+        end,
+    },
 }

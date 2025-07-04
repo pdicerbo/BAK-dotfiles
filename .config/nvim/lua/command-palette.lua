@@ -182,10 +182,10 @@ M.commands = {
         action = "glS",
     },
 
-    -- {
-    --   name = "LSP: Diagnostics (Quickfix List)",
-    --   action = "<leader>lq",
-    -- },
+    {
+        name = "Navbuddy: navigate breadcrumbs",
+        action = ":Navbuddy",
+    },
 
     -- {
     --   name = "LSP: Diagnostics (Location List)",

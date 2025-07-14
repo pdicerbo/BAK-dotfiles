@@ -17,7 +17,7 @@ return {
                 "~/.config/*",
             },
             picker = {
-                type = "telescope", -- or "fzf-lua"
+                type = "snacks",
             }
         },
         init = function()

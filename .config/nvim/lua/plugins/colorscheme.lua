@@ -1,12 +1,6 @@
 return {
     {
         "rebelot/kanagawa.nvim",
-        -- config = function()
-        --     require('kanagawa').setup({
-        --         transparent = true
-        --     })
-        --     vim.cmd("colorscheme kanagawa")
-        -- end
     },
 
     {
@@ -59,8 +53,17 @@ return {
         "olimorris/onedarkpro.nvim",
         lazy = false,
         priority = 1000,
+        -- config = function()
+        --     vim.cmd("colorscheme onedark")
+        -- end
+    },
+
+    {
+        "adibhanna/forest-night.nvim",
+        lazy = false,
+        priority = 1000,
         config = function()
-            vim.cmd("colorscheme onedark")
+            vim.cmd("colorscheme forest-night")
         end
     },
 }

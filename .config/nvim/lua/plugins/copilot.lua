@@ -238,11 +238,4 @@ return {
         },
     },
 
-
-
-
-    -- vim.keymap.set("n", "<leader>cc", function()
-    --     require("CopilotChat").open()
-    -- end, { desc = "Open Copilot Chat" })
-    -- }
 }

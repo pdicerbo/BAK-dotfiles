@@ -24,6 +24,8 @@ vim.opt.splitbelow = true -- Split horizontally to the bottom
 vim.opt.splitright = true -- Split vertically to the right
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
+vim.opt.winborder = 'rounded'
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Shift visual selected lines
 vim.keymap.set( "v", "<M-j>",       ":m '>+1<CR>gv=gv", { desc = "Shift visual selected lines down" } ) -- Shift visual selected lines down

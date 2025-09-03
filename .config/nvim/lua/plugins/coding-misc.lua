@@ -10,8 +10,8 @@ return {
             })
 
             local keymap = vim.keymap
-            keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
-            keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
+            keymap.set("n", "<leader>wr", "<cmd>AutoSession restore<CR>",   { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
+            keymap.set("n", "<leader>ws", "<cmd>AutoSession save<CR>",      { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
         end,
     },
 
@@ -60,71 +60,18 @@ return {
     },
 
     {
-        "SmiteshP/nvim-navic",
-        dependencies = { "neovim/nvim-lspconfig" },
+        'Bekaboo/dropbar.nvim',
+        -- optional, but required for fuzzy finder support
+        -- dependencies = {
+        --     'nvim-telescope/telescope-fzf-native.nvim',
+        --     build = 'CC=clang make'
+        -- },
         config = function()
-            require("nvim-navic").setup({
-                icons = {
-                    File = "󰈙 ",
-                    Module        = " ",
-                    Namespace = "󰌗 ",
-                    Package = "󰏖 ",
-                    Class = "󰠱 ",
-                    Method = "󰊕 ",
-                    Property = "󰜢 ",
-                    Field = "󰇽 ",
-                    Constructor   = " ",
-                    Enum = "󰕘 ",
-                    Interface = "󰕘 ",
-                    Function = "󰊕 ",
-                    Variable = "󰂡 ",
-                    Constant = "󰏿 ",
-                    String = "󰅬 ",
-                    Number = "󰎠 ",
-                    Boolean = "󰔨 ",
-                    Array = "󰅪 ",
-                    Object = "󰅩 ",
-                    Key = "󰌋 ",
-                    Null          = "󰟢 ",
-                    EnumMember    = " ",
-                    Struct = "󰌗 ",
-                    Event = "",
-                    Operator      = "󰆕 ",
-                    TypeParameter = "󰊄 ",
-                },
-                lsp = {
-                    auto_attach = true,
-                    preference = nil, -- use default LSP client
-                },
-                highlight = true,
-            })
-        end,
+            local dropbar_api = require('dropbar.api')
+            -- vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
+            vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
+            vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+        end
     },
 
-    {
-        "hasansujon786/nvim-navbuddy",
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            "SmiteshP/nvim-navic",
-            "MunifTanjim/nui.nvim",
-            "numToStr/Comment.nvim",        -- Optional
-            "nvim-telescope/telescope.nvim" -- Optional
-        },
-        config = function()
-            require("nvim-navbuddy").setup({
-                lsp = {
-                    auto_attach = true,
-                    preference = nil, -- use default LSP client
-                },
-                window = {
-                    border = "rounded",
-                    position = "50%",
-                    size = {
-                        width = "50%",
-                        height = "50%",
-                    },
-                },
-            })
-        end,
-    },
 }

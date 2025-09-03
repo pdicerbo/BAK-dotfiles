@@ -86,9 +86,6 @@ return {
             symbol_info()
         end, { desc = 'Show symbol info' })
 
-        require("nvim-navic").attach(client, bufnr)
-        require("nvim-navbuddy").attach(client, bufnr)
-
         -- add custom keymaps
         -- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts) -- already provided by folke.snacks
         vim.keymap.set({'n', 'x'}, 'gq', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)

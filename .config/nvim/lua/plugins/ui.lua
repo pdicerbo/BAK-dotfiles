@@ -108,7 +108,6 @@ return {
         config = function()
             local lualine = require("lualine")
             local lazy_status = require("lazy.status") -- to configure lazy pending updates count
-            local navic = require("nvim-navic")
 
             -- local colors = {
             --     color0 = "#092236",
@@ -195,17 +194,6 @@ return {
                         { "filetype" },
                     },
                 },
-
-                winbar = {
-                    lualine_c = {
-                        {
-                            "navic",
-                            color_correction = nil,
-                            navic_opts = nil
-                        }
-                    }
-                }
-
 
             })
         end,

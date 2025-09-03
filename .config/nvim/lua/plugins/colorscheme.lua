@@ -53,17 +53,17 @@ return {
         "olimorris/onedarkpro.nvim",
         lazy = false,
         priority = 1000,
-        -- config = function()
-        --     vim.cmd("colorscheme onedark")
-        -- end
+        config = function()
+            vim.cmd("colorscheme onedark")
+        end
     },
 
     {
         "adibhanna/forest-night.nvim",
         lazy = false,
         priority = 1000,
-        config = function()
-            vim.cmd("colorscheme forest-night")
-        end
+        -- config = function()
+        --     vim.cmd("colorscheme forest-night")
+        -- end
     },
 }

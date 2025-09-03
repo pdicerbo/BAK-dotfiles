@@ -77,7 +77,10 @@ return {
             error_header = "## Error ",
             prompts = prompts,
             context = "buffers",
-            -- model = "claude-3.7-sonnet",
+            resources = {
+                'buffer',
+                'selection'
+            },
             window = {
                 layout = 'vertical', -- 'vertical', 'horizontal', 'float', 'replace', or a function that returns the layout
                 width = 0.3, -- fractional width of parent, or absolute width in columns when > 1

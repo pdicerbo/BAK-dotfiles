@@ -58,6 +58,7 @@ return {
     },
 
     {
+        -- automatic highlighting of word under cursor
         "echasnovski/mini.cursorword",
         config = function()
             require("mini.cursorword").setup()
@@ -73,8 +74,8 @@ return {
         end,
     },
 
-    -- Setup Folding with nvim-ufo
     {
+        -- Setup Folding with nvim-ufo
         "kevinhwang91/nvim-ufo",
         dependencies = {
             "kevinhwang91/promise-async",

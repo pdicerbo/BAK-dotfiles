@@ -60,18 +60,21 @@ return {
     },
 
     {
+        -- breadcrumbs in winbar
         'Bekaboo/dropbar.nvim',
-        -- optional, but required for fuzzy finder support
-        -- dependencies = {
-        --     'nvim-telescope/telescope-fzf-native.nvim',
-        --     build = 'CC=clang make'
-        -- },
+
         config = function()
             local dropbar_api = require('dropbar.api')
             -- vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
             vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
             vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
         end
+    },
+
+    {
+        -- highlight text matching the current selection in visual mode
+        "wurli/visimatch.nvim",
+        opts = {}
     },
 
 }

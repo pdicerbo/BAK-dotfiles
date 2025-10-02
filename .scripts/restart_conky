@@ -1,2 +1,0 @@
-pkill conky
-conky --config=$HOME/.config/conky_cfg/aw_conky -d

@@ -8,11 +8,15 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles-bare-repo --work-tree=$HO
 
 ## clone the repository
 
+inside a terminal, run the following commands:
+
 ```bash
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles-bare-repo --work-tree=$HOME"
 git clone --bare https://github.com/pdicerbo/dotfiles.git $HOME/.dotfiles-bare-repo
+dotfiles checkout
 ```
 
-if this command fails, is because some files are already present in the home directory. (Re)Move the files and try again.
+if this command fails, is because some files are already present in the home directory. (Re)Move the files and try again OR execute `dotfiles checkout -f`.
 
 ## prevent untracked files from showing up
 
@@ -32,6 +36,14 @@ wget https://raw.githubusercontent.com/dandavison/delta/main/themes.gitconfir
 mv themes.gitconfig .themes.gitconfig
 ```
 
+## install tmux plugins
+
+the first time you run a tmux session, you have to install the plugins inside the tmux config.
+to do this, just press
+```
+prefix + I
+```
+where `prefix` is `Ctrl + space`.
 
 # Other tools required:
 

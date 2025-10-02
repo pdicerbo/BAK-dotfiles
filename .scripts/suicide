@@ -1,1 +1,0 @@
-echo $WINDOWID | xargs xkill -id

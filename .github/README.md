@@ -47,5 +47,7 @@ where `prefix` is `Ctrl + space`.
 
 # Other tools required:
 
-[delta](https://github.com/dandavison/delta): [download here](https://dandavison.github.io/delta/installation.html)
+- [cppman](https://aur.archlinux.org/packages/cppman)
+- [luajit](https://aur.archlinux.org/packages/luajit-tiktoken-bin)
+- [devpod-bin](https://aur.archlinux.org/packages/devpod-bin)
 

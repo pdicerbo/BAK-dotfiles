@@ -50,6 +50,11 @@ shared
 .config/vlc
 .config/xfce4
 .config/go/
+.config/dolphinrc
+.config/kde.org
+.config/ristretto/
+.config/session/
+.config/baloofileinformationrc
 .dbeaver
 .devpod
 .docker

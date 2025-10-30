@@ -76,7 +76,17 @@ local themes = {
     "zenburn",         -- 11
 }
 
--- local altkey       = "Mod1"
+-- special walls management
+local wall_dir = os.getenv("HOME") .. "/ARCH/aonix-walls"
+local walls = {}
+
+for file in io.popen('ls "' .. wall_dir .. '"'):lines() do
+    if file:match("%.png$") or file:match("%.jpg$") then
+        table.insert(walls, file)
+    end
+end
+
+local altkey       = "Mod1"
 local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local terminal     = "alacritty"
@@ -276,12 +286,75 @@ end
 -- Call the function on startup
 start_terminal_with_tmux()
 
+local current_wall_index = 1
+
+-- Function to cycle wallpapers
+local function cycle_wallpaper(direction)
+    direction = direction or 1
+    current_wall_index = (current_wall_index - 1 + direction) % #walls + 1
+    for s in screen do
+        gears.wallpaper.maximized(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s, true)
+    end
+    naughty.notify({
+        title = "Wallpaper Set",
+        text = "Wallpaper #" .. tostring(current_wall_index) .. ": " .. walls[current_wall_index],
+        timeout = 2
+    })
+end
+
+local function prompt_wallpaper()
+    awful.prompt.run {
+        prompt       = "Wallpaper number: ",
+        textbox      = awful.screen.focused().mypromptbox.widget,
+        exe_callback = function(input)
+            local idx = tonumber(input)
+            if idx and walls[idx] then
+                current_wall_index = idx
+                for s in screen do
+                    gears.wallpaper.maximized(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s, true)
+                end
+                naughty.notify({
+                    title = "Wallpaper Set",
+                    text = "Wallpaper #" .. tostring(current_wall_index) .. ": " .. walls[current_wall_index],
+                    timeout = 2
+                })
+            else
+                naughty.notify({
+                    preset = naughty.config.presets.critical,
+                    title = "Invalid wallpaper number",
+                    text = "Please enter a number between 1 and " .. tostring(#walls)
+                })
+            end
+        end
+    }
+end
+
+local function unmazimize()
+    for s in screen do
+        gears.wallpaper.fit(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s)
+    end
+end
+
+local function mazimize()
+    for s in screen do
+        gears.wallpaper.maximized(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s, true)
+    end
+end
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
     awful.key({                   }, "Print", function () awful.util.spawn("scrot -e 'mv $f " .. os.getenv("HOME")  .."/Images/Scrot/ 2>/dev/null'") end,
               {description = "take a screenshot", group = "hotkeys"}),
+
+
+    -- cycle back and forth wallpapers
+    awful.key({ altkey, "Shift" }, "Right", function() cycle_wallpaper(1) end, {description = "cycle wallpaper forward", group = "launcher"}),
+    awful.key({ altkey, "Shift" }, "Left", function() cycle_wallpaper(-1) end, {description = "cycle wallpaper backward", group = "launcher"}),
+    awful.key({ altkey, "Shift" }, "p", prompt_wallpaper, {description = "prompt for wallpaper number", group = "launcher"}),
+    awful.key({ altkey, "Shift" }, "u", unmazimize, {description = "unmazimize wallpaper", group = "launcher"}),
+    awful.key({ altkey, "Shift" }, "m", mazimize, {description = "mazimize wallpaper", group = "launcher"}),
 
     -- Hotkeys
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -372,6 +445,13 @@ globalkeys = awful.util.table.join(
             end
         end,
         {description = "toggle wibox", group = "awesome"}),
+
+    awful.key({ modkey, "Shift" }, "w", function ()
+        for s in screen do
+            gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/awesome/themes/zenburn/wall.jpg", s, true)
+        end
+    end,
+   {description = "set basic wallpaper", group = "launcher"}),
 
     -- On the fly useless gaps change
     -- awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,

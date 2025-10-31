@@ -329,6 +329,7 @@ local function prompt_wallpaper()
     }
 end
 
+-- functions to mazimize and unmazimize wallpaper (not really mazimize, but fit and maximized)
 local function unmazimize()
     for s in screen do
         gears.wallpaper.fit(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s)
@@ -341,6 +342,22 @@ local function mazimize()
     end
 end
 
+
+-- Keyboard layout toggle function
+local current_layout = "us"
+
+local function toggle_keyboard_layout()
+    if current_layout == "us" then
+        awful.spawn.with_shell("it_layout")
+        current_layout = "it"
+        naughty.notify({ title = "Keyboard Layout", text = "Switched to US International" })
+    else
+        awful.spawn.with_shell("us_layout")
+        current_layout = "us"
+        naughty.notify({ title = "Keyboard Layout", text = "Switched to US" })
+    end
+end
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     -- Take a screenshot
@@ -348,6 +365,8 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "Print", function () awful.util.spawn("scrot -e 'mv $f " .. os.getenv("HOME")  .."/Images/Scrot/ 2>/dev/null'") end,
               {description = "take a screenshot", group = "hotkeys"}),
 
+    -- toggle keyboard layout
+    awful.key({ altkey, "Shift" }, "space", toggle_keyboard_layout, {description = "toggle keyboard layout", group = "launcher"}),
 
     -- cycle back and forth wallpapers
     awful.key({ altkey, "Shift" }, "Right", function() cycle_wallpaper(1) end, {description = "cycle wallpaper forward", group = "launcher"}),

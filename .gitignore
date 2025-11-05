@@ -34,6 +34,7 @@ shared
 .bash_history*
 .bash_logout
 .cache
+.config/aonix-walls
 .config/Code
 .config/QtProject.conf
 .config/Thunar
@@ -44,7 +45,9 @@ shared
 .config/gcloud
 .config/GIMP
 .config/github-copilot
+.config/go/
 .config/google-chrome
+.config/htop
 .config/ksnip
 .config/menus
 .config/mimeapps.list*
@@ -53,7 +56,7 @@ shared
 .config/tmux/plugins
 .config/vlc
 .config/xfce4
-.config/go/
+.config/wallpapers
 .dbeaver
 .devpod
 .docker

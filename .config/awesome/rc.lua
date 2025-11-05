@@ -77,7 +77,7 @@ local themes = {
 }
 
 -- special walls management
-local wall_dir = os.getenv("HOME") .. "/ARCH/aonix-walls"
+local wall_dir = os.getenv("HOME") .. "/.config/aonix-walls"
 local walls = {}
 
 for file in io.popen('ls "' .. wall_dir .. '"'):lines() do
@@ -293,7 +293,7 @@ local function cycle_wallpaper(direction)
     direction = direction or 1
     current_wall_index = (current_wall_index - 1 + direction) % #walls + 1
     for s in screen do
-        gears.wallpaper.maximized(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s, true)
+        gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/aonix-walls/" .. walls[current_wall_index], s, true)
     end
     naughty.notify({
         title = "Wallpaper Set",
@@ -311,7 +311,7 @@ local function prompt_wallpaper()
             if idx and walls[idx] then
                 current_wall_index = idx
                 for s in screen do
-                    gears.wallpaper.maximized(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s, true)
+                    gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/aonix-walls/" .. walls[current_wall_index], s, true)
                 end
                 naughty.notify({
                     title = "Wallpaper Set",
@@ -332,13 +332,13 @@ end
 -- functions to mazimize and unmazimize wallpaper (not really mazimize, but fit and maximized)
 local function unmazimize()
     for s in screen do
-        gears.wallpaper.fit(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s)
+        gears.wallpaper.fit(os.getenv("HOME") .. "/.config/aonix-walls/" .. walls[current_wall_index], s)
     end
 end
 
 local function mazimize()
     for s in screen do
-        gears.wallpaper.maximized(os.getenv("HOME") .. "/ARCH/aonix-walls/" .. walls[current_wall_index], s, true)
+        gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/aonix-walls/" .. walls[current_wall_index], s, true)
     end
 end
 

@@ -77,14 +77,20 @@ local themes = {
 }
 
 -- special walls management
-local wall_dir = os.getenv("HOME") .. "/.config/aonix-walls"
-local walls = {}
-
-for file in io.popen('ls "' .. wall_dir .. '"'):lines() do
-    if file:match("%.png$") or file:match("%.jpg$") then
-        table.insert(walls, file)
+local function get_wallpapers_from_dir(dir)
+    local files = {}
+    for file in io.popen('ls "' .. dir .. '"'):lines() do
+        if file:match("%.png$") or file:match("%.jpg$") then
+            table.insert(files, file)
+        end
     end
+    return files
 end
+
+local aonix_wall_dir = os.getenv("HOME") .. "/.config/aonix-walls"
+local wallpapers_dir = os.getenv("HOME") .. "/.config/wallpapers"
+local aonix_walls = get_wallpapers_from_dir(aonix_wall_dir)
+local wallpapers = get_wallpapers_from_dir(wallpapers_dir)
 
 local altkey       = "Mod1"
 local chosen_theme = themes[11]
@@ -286,59 +292,64 @@ end
 -- Call the function on startup
 start_terminal_with_tmux()
 
-local current_wall_index = 1
+local current_wall_indices = {
+    [aonix_wall_dir] = 1,
+    [wallpapers_dir] = 1,
+}
 
--- Function to cycle wallpapers
-local function cycle_wallpaper(direction)
+local function cycle_wallpaper(folder, wall_table, direction)
     direction = direction or 1
-    current_wall_index = (current_wall_index - 1 + direction) % #walls + 1
+    local idx = current_wall_indices[folder]
+    idx = (idx - 1 + direction) % #wall_table + 1
+    current_wall_indices[folder] = idx
     for s in screen do
-        gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/aonix-walls/" .. walls[current_wall_index], s, true)
+        gears.wallpaper.maximized(folder .. "/" .. wall_table[idx], s, true)
     end
     naughty.notify({
         title = "Wallpaper Set",
-        text = "Wallpaper #" .. tostring(current_wall_index) .. ": " .. walls[current_wall_index],
+        text = "Wallpaper #" .. tostring(idx) .. ": " .. wall_table[idx],
         timeout = 2
     })
 end
 
-local function prompt_wallpaper()
+local function prompt_wallpaper(folder, wall_table)
     awful.prompt.run {
         prompt       = "Wallpaper number: ",
         textbox      = awful.screen.focused().mypromptbox.widget,
         exe_callback = function(input)
             local idx = tonumber(input)
-            if idx and walls[idx] then
-                current_wall_index = idx
+            if idx and wall_table[idx] then
+                current_wall_indices[folder] = idx
                 for s in screen do
-                    gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/aonix-walls/" .. walls[current_wall_index], s, true)
+                    gears.wallpaper.maximized(folder .. "/" .. wall_table[idx], s, true)
                 end
                 naughty.notify({
                     title = "Wallpaper Set",
-                    text = "Wallpaper #" .. tostring(current_wall_index) .. ": " .. walls[current_wall_index],
+                    text = "Wallpaper #" .. tostring(idx) .. ": " .. wall_table[idx],
                     timeout = 2
                 })
             else
                 naughty.notify({
                     preset = naughty.config.presets.critical,
                     title = "Invalid wallpaper number",
-                    text = "Please enter a number between 1 and " .. tostring(#walls)
+                    text = "Please enter a number between 1 and " .. tostring(#wall_table)
                 })
             end
         end
     }
 end
 
--- functions to mazimize and unmazimize wallpaper (not really mazimize, but fit and maximized)
-local function unmazimize()
+local function unmaximize_wallpaper(folder, wall_table)
+    local idx = current_wall_indices[folder]
     for s in screen do
-        gears.wallpaper.fit(os.getenv("HOME") .. "/.config/aonix-walls/" .. walls[current_wall_index], s)
+        gears.wallpaper.fit(folder .. "/" .. wall_table[idx], s)
     end
 end
 
-local function mazimize()
+local function maximize_wallpaper(folder, wall_table)
+    local idx = current_wall_indices[folder]
     for s in screen do
-        gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/aonix-walls/" .. walls[current_wall_index], s, true)
+        gears.wallpaper.maximized(folder .. "/" .. wall_table[idx], s, true)
     end
 end
 
@@ -366,14 +377,19 @@ globalkeys = awful.util.table.join(
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- toggle keyboard layout
-    awful.key({ altkey, "Shift" }, "space", toggle_keyboard_layout, {description = "toggle keyboard layout", group = "launcher"}),
+    awful.key({ altkey, "Shift" }, "space", toggle_keyboard_layout, {description = "toggle keyboard layout", group = "hotkeys"}),
 
     -- cycle back and forth wallpapers
-    awful.key({ altkey, "Shift" }, "Right", function() cycle_wallpaper(1) end, {description = "cycle wallpaper forward", group = "launcher"}),
-    awful.key({ altkey, "Shift" }, "Left", function() cycle_wallpaper(-1) end, {description = "cycle wallpaper backward", group = "launcher"}),
-    awful.key({ altkey, "Shift" }, "p", prompt_wallpaper, {description = "prompt for wallpaper number", group = "launcher"}),
-    awful.key({ altkey, "Shift" }, "u", unmazimize, {description = "unmazimize wallpaper", group = "launcher"}),
-    awful.key({ altkey, "Shift" }, "m", mazimize, {description = "mazimize wallpaper", group = "launcher"}),
+    awful.key({ altkey, "Shift" }, "Right", function() cycle_wallpaper(aonix_wall_dir, aonix_walls, 1) end, {description = "cycle AONIX wallpaper forward", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "Left", function() cycle_wallpaper(aonix_wall_dir, aonix_walls, -1) end, {description = "cycle AONIX wallpaper backward", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "j", function() cycle_wallpaper(wallpapers_dir, wallpapers, -1) end, {description = "cycle wallpaper backward", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "k", function() cycle_wallpaper(wallpapers_dir, wallpapers, 1) end, {description = "cycle wallpaper forward", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "p", function() prompt_wallpaper(aonix_wall_dir, aonix_walls) end, {description = "prompt for AONIX wallpaper number", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "n", function() prompt_wallpaper(wallpapers_dir, wallpapers) end, {description = "prompt for wallpaper number", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "u", function() unmaximize_wallpaper(aonix_wall_dir, aonix_walls) end, {description = "unmazimize AONIX wallpaper", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "m", function() maximize_wallpaper(aonix_wall_dir, aonix_walls) end, {description = "mazimize AONIX wallpaper", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "r", function() unmaximize_wallpaper(wallpapers_dir, wallpapers) end, {description = "unmazimize wallpaper", group = "wallpaper"}),
+    awful.key({ altkey, "Shift" }, "f", function() maximize_wallpaper(wallpapers_dir, wallpapers) end, {description = "maximize wallpaper", group = "wallpaper"}),
 
     -- Hotkeys
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -470,7 +486,7 @@ globalkeys = awful.util.table.join(
             gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/awesome/themes/zenburn/wall.jpg", s, true)
         end
     end,
-   {description = "set basic wallpaper", group = "launcher"}),
+   {description = "set default wallpaper", group = "wallpaper"}),
 
     -- On the fly useless gaps change
     -- awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,

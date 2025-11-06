@@ -293,46 +293,55 @@ end
 start_terminal_with_tmux()
 
 local current_wall_indices = {
-    [aonix_wall_dir] = 1,
-    [wallpapers_dir] = 1,
+    [aonix_wall_dir] = 0,
+    [wallpapers_dir] = 0,
 }
 
 local function cycle_wallpaper(folder, wall_table, direction)
     direction = direction or 1
     local idx = current_wall_indices[folder]
-    idx = (idx - 1 + direction) % #wall_table + 1
+    local count = #wall_table
+    idx = (idx + direction) % (count + 1)
     current_wall_indices[folder] = idx
     for s in screen do
-        gears.wallpaper.maximized(folder .. "/" .. wall_table[idx], s, true)
+        if idx == 0 then
+            gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/awesome/themes/zenburn/wall.jpg", s, true)
+        else
+            gears.wallpaper.maximized(folder .. "/" .. wall_table[idx], s, true)
+        end
     end
     naughty.notify({
         title = "Wallpaper Set",
-        text = "Wallpaper #" .. tostring(idx) .. ": " .. wall_table[idx],
+        text = idx == 0 and "Default wallpaper" or ("Wallpaper #" .. tostring(idx) .. ": " .. wall_table[idx]),
         timeout = 2
     })
 end
 
 local function prompt_wallpaper(folder, wall_table)
     awful.prompt.run {
-        prompt       = "Wallpaper number: ",
+        prompt       = "Wallpaper number (0 for default): ",
         textbox      = awful.screen.focused().mypromptbox.widget,
         exe_callback = function(input)
             local idx = tonumber(input)
-            if idx and wall_table[idx] then
+            if idx and idx >= 0 and idx <= #wall_table then
                 current_wall_indices[folder] = idx
                 for s in screen do
-                    gears.wallpaper.maximized(folder .. "/" .. wall_table[idx], s, true)
+                    if idx == 0 then
+                        gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/awesome/themes/zenburn/wall.jpg", s, true)
+                    else
+                        gears.wallpaper.maximized(folder .. "/" .. wall_table[idx], s, true)
+                    end
                 end
                 naughty.notify({
                     title = "Wallpaper Set",
-                    text = "Wallpaper #" .. tostring(idx) .. ": " .. wall_table[idx],
+                    text = idx == 0 and "Default wallpaper" or ("Wallpaper #" .. tostring(idx) .. ": " .. wall_table[idx]),
                     timeout = 2
                 })
             else
                 naughty.notify({
                     preset = naughty.config.presets.critical,
                     title = "Invalid wallpaper number",
-                    text = "Please enter a number between 1 and " .. tostring(#wall_table)
+                    text = "Please enter a number between 0 and " .. tostring(#wall_table)
                 })
             end
         end
@@ -353,8 +362,6 @@ local function maximize_wallpaper(folder, wall_table)
     end
 end
 
-
--- Keyboard layout toggle function
 local current_layout = "us"
 
 local function toggle_keyboard_layout()

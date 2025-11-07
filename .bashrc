@@ -41,4 +41,4 @@ fi
 # setxkbmap -option compose:rwin
 
 export GOPATH=$HOME/.local/go
-archey
+fastfetch

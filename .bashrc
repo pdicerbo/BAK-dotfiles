@@ -10,7 +10,7 @@ alias grep='grep --color=auto'
 alias pacman='pacman --color=auto'
 alias diff='diff --color=auto'
 alias ncdu='ncdu --color dark'
-# alias e='emacs -nw'
+alias icat="kitten icat"
 alias p='python'
 alias sshfs_atsapp234='sshfs atsapp234:/srv/projects/ /home/pierluigi/DockerEnvs/sshfs/monitor_stack_atsapp234'
 alias sshfs_atsapp235='sshfs atsapp235:/srv/projects/ /home/pierluigi/DockerEnvs/sshfs/srv_prj_atsapp235'

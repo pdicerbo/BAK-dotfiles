@@ -488,6 +488,13 @@ globalkeys = awful.util.table.join(
         end,
         {description = "toggle wibox", group = "awesome"}),
 
+    awful.key({ altkey, "Shift" }, "w", function ()
+        for s in screen do
+            gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/awesome/themes/zenburn/wall.jpg", s, true)
+        end
+    end,
+   {description = "set default wallpaper", group = "wallpaper"}),
+
     awful.key({ modkey, "Shift" }, "w", function ()
         for s in screen do
             gears.wallpaper.maximized(os.getenv("HOME") .. "/.config/awesome/themes/zenburn/wall.jpg", s, true)

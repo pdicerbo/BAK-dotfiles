@@ -63,17 +63,7 @@ awful.util.spawn("conky --config=" .. os.getenv("HOME") .. "/.config/conky_cfg/a
 -- {{{ Variable definitions
 
 local themes = {
-    "blackburn",       -- 1
-    "copland",         -- 2
-    "dremora",         -- 3
-    "holo",            -- 4
-    "multicolor",      -- 5
-    "powerarrow",      -- 6
-    "powerarrow-dark", -- 7
-    "rainbow",         -- 8
-    "steamburn",       -- 9
-    "vertex",          -- 10
-    "zenburn",         -- 11
+    "zenburn",         -- 1
 }
 
 -- special walls management
@@ -93,7 +83,7 @@ local aonix_walls = get_wallpapers_from_dir(aonix_wall_dir)
 local wallpapers = get_wallpapers_from_dir(wallpapers_dir)
 
 local altkey       = "Mod1"
-local chosen_theme = themes[11]
+local chosen_theme = themes[1]
 local modkey       = "Mod4"
 local terminal     = "kitty"
 local editor       = "nvim"
